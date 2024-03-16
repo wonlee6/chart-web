@@ -1,3 +1,399 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true
+  },
+  "extends": [
+    // "next",
+    "eslint:recommended",
+    "plugin:@next/next/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/react",
+    "plugin:import/typescript",
+    "prettier"
+    // "plugin:@typescript-eslint/recommended",
+    // "plugin:import/warnings",
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "jsx-a11y",
+    "@typescript-eslint",
+    "tailwindcss",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "react/prop-types": 0,
+     /**
+     * Require consistent function type for function components.
+     *
+     * 🔧 Fixable - https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/function-component-definition.md
+     */
+    "react/function-component-definition": "warn",
+     /**
+     * Require destructuring and symmetric naming of `useState` hook value and setter variables.
+     *
+     * 🚫 Not fixable - https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/hook-use-state.md
+     */
+    "react/hook-use-state": "warn",
+     /**
+     * Require consistent boolean attributes notation in JSX.
+     *
+     * 🔧 Fixable - https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md
+     */
+    "react/jsx-boolean-value": "warn",
+    /**
+     * Disallow unnecessary curly braces in JSX props and children.
+     *
+     * 🔧 Fixable - https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
+     */
+    "react/jsx-curly-brace-presence": "warn",
+    /**
+     * Require using shorthand form for React fragments, unless required.
+     *
+     * 🔧 Fixable - https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-fragments.md
+     */
+    "react/jsx-fragments": "warn",
+     /**
+     * Prevent problematic leaked values from being rendered.
+     *
+     * 🔧 Fixable - https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-leaked-render.md
+     */
+    "react/jsx-no-leaked-render": "warn",
+    /**
+     * Disallow empty React fragments.
+     *
+     * 🔧 Fixable - https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
+     */
+    "react/jsx-no-useless-fragment": ["warn", { "allowExpressions": true }],
+     /**
+     * Require the use of PascalCase for user-defined JSX components.
+     *
+     * 🚫 Not fixable - https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md
+     */
+    "react/jsx-pascal-case": "warn",
+    /**
+     * Disallow usage of Array index in keys.
+     *
+     * 🚫 Not fixable - https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md
+     */
+    "react/no-array-index-key": "warn",
+    /**
+     * Disallow creating unstable components inside components.
+     *
+     * 🚫 Not fixable - https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unstable-nested-components.md
+     */
+    "react/no-unstable-nested-components": "error",
+    /**
+     * Disallow closing tags for components without children.
+     *
+     * 🔧 Fixable - https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
+     */
+    "react/self-closing-comp": "warn",
+
+    
+     /**
+     * Require return statements in array methods callbacks.
+     *
+     * 🚫 Not fixable -https://eslint.org/docs/rules/array-callback-return
+     */
+     "array-callback-return": ["error", { "allowImplicit": true }],
+     /**
+      * Treat `var` statements as if they were block scoped.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/block-scoped-var
+      */
+     "block-scoped-var": "error",
+     /**
+      * Require curly braces for multiline blocks.
+      *
+      * 🔧 Fixable - https://eslint.org/docs/rules/curly
+      */
+     "curly": ["warn", "multi-line"],
+     /**
+      * Require default clauses in switch statements to be last (if used).
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/default-case-last
+      */
+     "default-case-last": "error",
+     /**
+      * Require triple equals (`===` and `!==`).
+      *
+      * 🔧 Fixable - https://eslint.org/docs/rules/eqeqeq
+      */
+     "eqeqeq": "error",
+     /**
+      * Require grouped accessor pairs in object literals and classes.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/grouped-accessor-pairs
+      */
+     "grouped-accessor-pairs": "error",
+     /**
+      * Disallow use of `alert()`.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-alert
+      */
+     "no-alert": "error",
+     /**
+      * Disallow use of `caller`/`callee`.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-caller
+      */
+     "no-caller": "error",
+     /**
+      * Disallow returning value in constructor.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-constructor-return
+      */
+     "no-constructor-return": "error",
+     /**
+      * Disallow using an `else` if the `if` block contains a return.
+      *
+      * 🔧 Fixable - https://eslint.org/docs/rules/no-else-return
+      */
+     "no-else-return": "warn",
+     /**
+      * Disallow `eval()`.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-eval
+      */
+     "no-eval": "error",
+     /**
+      * Disallow extending native objects.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-extend-native
+      */
+     "no-extend-native": "error",
+     /**
+      * Disallow unnecessary function binding.
+      *
+      * 🔧 Fixable - https://eslint.org/docs/rules/no-extra-bind
+      */
+     "no-extra-bind": "error",
+     /**
+      * Disallow unnecessary labels.
+      *
+      * 🔧 Fixable - https://eslint.org/docs/rules/no-extra-label
+      */
+     "no-extra-label": "error",
+     /**
+      * Disallow floating decimals.
+      *
+      * 🔧 Fixable - https://eslint.org/docs/rules/no-floating-decimal
+      */
+     "no-floating-decimal": "error",
+     /**
+      * Make people convert types explicitly e.g. `Boolean(foo)` instead of `!!foo`.
+      *
+      * 🔧 Partially Fixable - https://eslint.org/docs/rules/no-implicit-coercion
+      */
+     "no-implicit-coercion": "error",
+     /**
+      * Disallow use of `eval()`-like methods.
+      *
+      * https://eslint.org/docs/rules/no-implied-eval
+      */
+     "no-implied-eval": "error",
+     /**
+      * Disallow usage of `__iterator__` property.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-iterator
+      */
+     "no-iterator": "error",
+     /**
+      * Disallow use of labels for anything other than loops and switches.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-labels
+      */
+     "no-labels": ["error"],
+     /**
+      * Disallow unnecessary nested blocks.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-lone-blocks
+      */
+     "no-lone-blocks": "error",
+     /**
+      * Disallow `new` for side effects.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-new
+      */
+     "no-new": "error",
+     /**
+      * Disallow function constructors.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-new-func
+      */
+     "no-new-func": "error",
+     /**
+      * Disallow primitive wrapper instances, such as `new String("foo")`.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-new-wrappers
+      */
+     "no-new-wrappers": "error",
+     /**
+      * Disallow use of octal escape sequences in string literals.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-octal-escape
+      */
+     "no-octal-escape": "error",
+     /**
+      * Disallow reassignment of function parameters.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-param-reassign
+      */
+     "no-param-reassign": "error",
+     /**
+      * Disallow usage of the deprecated `__proto__` property.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-proto
+      */
+     "no-proto": "error",
+     /**
+      * Disallow assignment in `return` statement.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-return-assign
+      */
+     "no-return-assign": "error",
+     /**
+      * Disallow use of `javascript:` urls.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-script-url
+      */
+     "no-script-url": "error",
+     /**
+      * Disallow comparisons where both sides are exactly the same.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-self-compare
+      */
+     "no-self-compare": "error",
+     /**
+      * Disallow use of comma operator.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-sequences
+      */
+     "no-sequences": "error",
+     /**
+      * Disallow unnecessary `.call()` and `.apply()`.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-useless-call
+      */
+     "no-useless-call": "error",
+     /**
+      * Disallow unnecessary concatenation of strings.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/no-useless-concat
+      */
+     "no-useless-concat": "error",
+     /**
+      * Disallow redundant return statements.
+      *
+      * 🔧 Fixable - https://eslint.org/docs/rules/no-useless-return
+      */
+     "no-useless-return": "warn",
+     /**
+      * Require using named capture groups in regular expressions.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/prefer-named-capture-group
+      */
+     "prefer-named-capture-group": "error",
+     /**
+      * Require using Error objects as Promise rejection reasons.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/prefer-promise-reject-errors
+      */
+     "prefer-promise-reject-errors": ["error", { "allowEmptyReject": true }],
+     /**
+      * Disallow use of the RegExp constructor in favor of regular expression
+      * literals.
+      *
+      * 🚫 Not fixable - https://eslint.org/docs/rules/prefer-regex-literals
+      */
+     "prefer-regex-literals": "error",
+     /**
+      * Disallow "Yoda conditions", ensuring the comparison.
+      *
+      * 🔧 Fixable - https://eslint.org/docs/rules/yoda
+      */
+     "yoda": "warn",
+     "no-var": "error",
+     "no-undef": "off",
+     "react/react-in-jsx-scope": "off",
+     "react/jsx-props-no-spreading": "warn",
+     "no-shadow": "off",
+     "no-console": "warn",
+     "no-unused-vars": "warn",
+     "no-empty": "warn"
+    },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 }
+
+    // "react/no-children-prop": 0,
+    // "react-hooks/exhaustive-deps": ["warn"], // hooks의 의존성배열이 충분하지 않을때 강제로 의존성을 추가하는 규칙을 완화
+    // "react/jsx-props-no-spreading": "off", // props spreading을 허용하지 않는 규칙 해제 [1, { "custom": "ignore" }]
+    // "jsx-a11y/no-noninteractive-element-interactions": 0,
+    // "react/jsx-filename-extension": [
+    //   2,
+    //   {"extensions": [".js", ".jsx", ".ts", ".tsx"]}
+    // ],
+    // "import/extensions": 0,
+    // "no-use-before-define": "off",
+    // "import/no-unresolved": 0,
+    // "import/no-extraneous-dependencies": 0,
+    // "no-shadow": 0,
+    // ""@typescript-eslint/explicit-module-boundary-types": 0,
+    // "linebreak-style": 0,
+    // "jsx-quotes": ["error", "prefer-single"],
+    // // "indent": ["error", 2],
+    // // "linebreak-style": ["error", "windows"],
+    // // "linebreak-style": ["error", "unix"],
+    // // "quotes": ["error", "single"],
+    // "no-console": "off",
+    // "no-unused-vars": "off", // 사용하지 않는 변수가 있을때 빌드에러가 나던 규칙 해제
+    // // "@typescript-eslint/no-unused-vars": [
+    // //   "error",
+    // //   { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
+    // // ],
+    // "@typescript-eslint/explicit-function-return-type": "off", // Consider using explicit annotations for object literals and function return types even when they can be inferred.
+    // "@typescript-eslint/no-explicit-any": 0,
+    // "no-empty": "warn",
+    // "prettier/prettier": 0,
+    // "import/prefer-default-export": ["off"], // export const 문을 쓸때 에러를 내는 규칙 해제
+    // "@typescript-eslint/ban-types": [
+    //   "error",
+    //   {
+    //     "extendDefaults": true,
+    //     "types": {
+    //       "{}": false
+    //     }
+    //   }
+    // ]
+  // "settings": {
+  //   "react": {
+  //     "version": "detect"
+  //   },
+  //   "import/parsers": {
+  //     "@typescript-eslint/parser": [".ts", ".tsx"]
+  //   },
+  //   // "import/resolver": {
+  //   //   "typescript": "./tsconfig.json"
+  //   // }
+  //   "import/resolver": {
+  //     "node": {
+  //       "extensions": [".js", ".jsx", ".ts", ".tsx"]
+  //     }
+  //   }
+  //   // "mdx/code-blocks": true,
+  //   // "mdx/language-mapper": {}

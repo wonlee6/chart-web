@@ -6,6 +6,9 @@
 
 const nextConfig = {
   reactStrictMode: true,
+  // experimental: {        
+  //   typedRoutes: true, // --turbo x
+  // }
 };
 
 export default nextConfig;
