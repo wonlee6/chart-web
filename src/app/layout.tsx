@@ -1,9 +1,10 @@
-import type {Metadata} from 'next'
-import {Inter} from 'next/font/google'
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import Provider from './provider'
+import Nav from '@/components/nav'
 
-const inter = Inter({subsets: ['latin']})
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Chart',
@@ -18,7 +19,12 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <Provider>{children}</Provider>
+        <Provider>
+          <main className='flex flex-col h-dvh'>
+            <Nav />
+            <div className='pt-4 h-screen'>{children}</div>
+          </main>
+        </Provider>
       </body>
     </html>
   )
