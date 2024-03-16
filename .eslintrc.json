@@ -11,8 +11,8 @@
     "plugin:jsx-a11y/recommended",
     "plugin:import/react",
     "plugin:import/typescript",
-    "prettier"
-    // "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:@typescript-eslint/recommended"
     // "plugin:import/warnings",
   ],
   "parserOptions": {
@@ -330,7 +330,7 @@
      "react/jsx-props-no-spreading": "warn",
      "no-shadow": "off",
      "no-console": "warn",
-     "no-unused-vars": "warn",
+    //  "no-unused-vars": "warn",
      "no-empty": "warn"
     },
   "settings": {

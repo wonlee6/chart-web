@@ -1,36 +1,86 @@
 'use client'
-import { chartMenuList } from '@/lib/chart_menu'
-import { Listbox, ListboxItem } from '@nextui-org/react'
-import { useMemo, useState } from 'react'
-import ChartSVGIcon from './icons/ChartSVGIcon'
+
+import { useCallback, useMemo, useState } from 'react'
+import { echartHelper } from '@/helper/echartHelper'
+import { ChartPrivewList, ChartTypeModel } from '@/model/echart'
+import MenuContainer from './menuList'
+import PreviewListContainer from './previewList'
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure
+} from '@nextui-org/react'
 
 export default function ECharts() {
-  const [selectedKeys, setSelectedKeys] = useState(new Set(['text']))
+  const [selectedMenu, setSelectedMenu] = useState<ChartTypeModel>(ChartTypeModel.Line)
+  const [selectedChart, setSelectedChart] = useState<ChartPrivewList | null>(null)
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const handleSelectChart = useCallback((chart: ChartPrivewList) => {
+    setSelectedChart(chart)
+    onOpen()
+  }, [])
+
+  const handleSelectMenu = useCallback(
+    (type: ChartTypeModel) => setSelectedMenu(type),
+    []
+  )
+
+  const filteredChartList = useMemo(() => {
+    return echartHelper.getChartImgList(selectedMenu)
+  }, [selectedMenu])
 
   return (
-    <div className='flex px-4'>
-      <aside className='w-auto flex flex-col gap-2 sticky'>
-        <div className='w-[200px] border-small px-1 py-2 rounded-small border-default-200 dark:border-default-100'>
-          <Listbox
-            aria-label='Single selection example'
-            variant='flat'
-            disallowEmptySelection
-            selectionMode='single'
-            selectedKeys={selectedKeys}
-            onSelectionChange={(key) =>
-              setSelectedKeys(new Set([Array.from(key).join('')]))
-            }>
-            {chartMenuList.map((item) => (
-              <ListboxItem
-                key={item.value}
-                startContent={<ChartSVGIcon chartType={item.value} />}>
-                {item.name}
-              </ListboxItem>
-            ))}
-          </Listbox>
-        </div>
-      </aside>
-      <section className='w-full border border-spacing-1 rounded-md'></section>
-    </div>
+    <>
+      <MenuContainer>
+        <MenuContainer.MenuList onSelectMenu={handleSelectMenu} />
+      </MenuContainer>
+      <PreviewListContainer>
+        <PreviewListContainer.PreviewList
+          previewList={filteredChartList}
+          onSelectChart={handleSelectChart}
+        />
+      </PreviewListContainer>
+      <Modal size='5xl' isOpen={isOpen} onClose={onClose}>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className='flex flex-col gap-1'>Modal Title</ModalHeader>
+              <ModalBody>
+                <p>
+                  {selectedChart?.title}
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar
+                  risus non risus hendrerit venenatis. Pellentesque sit amet hendrerit
+                  risus, sed porttitor quam.
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar
+                  risus non risus hendrerit venenatis. Pellentesque sit amet hendrerit
+                  risus, sed porttitor quam.
+                </p>
+                <p>
+                  Magna exercitation reprehenderit magna aute tempor cupidatat consequat
+                  elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum
+                  quis. Velit duis sit officia eiusmod Lorem aliqua enim laboris do dolor
+                  eiusmod.
+                </p>
+              </ModalBody>
+              <ModalFooter>
+                <Button color='danger' variant='light' onPress={onClose}>
+                  Close
+                </Button>
+                <Button color='primary' onPress={onClose}>
+                  Action
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
+    </>
   )
 }
