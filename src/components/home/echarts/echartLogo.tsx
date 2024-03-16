@@ -17,7 +17,7 @@ export default function EchartLogo() {
         stroke='white'
         strokeWidth='4'
         strokeLinejoin='round'
-        transform='255px 255px'
+        // transform='255px 255px'
         className='zr0-cls-0'
       />
       <path
@@ -26,7 +26,7 @@ export default function EchartLogo() {
         stroke='white'
         strokeWidth='4'
         strokeLinejoin='round'
-        transform='255px 255px'
+        // transform='255px 255px'
         className='zr0-cls-1'
       />
       <path
@@ -35,7 +35,7 @@ export default function EchartLogo() {
         stroke='white'
         strokeWidth='4'
         strokeLinejoin='round'
-        transform='255px 255px'
+        // transform='255px 255px'
         className='zr0-cls-2'
       />
       <path
@@ -44,7 +44,7 @@ export default function EchartLogo() {
         stroke='white'
         strokeWidth='4'
         strokeLinejoin='round'
-        transform='255px 255px'
+        // transform='255px 255px'
         className='zr0-cls-3'
       />
       <path
@@ -53,7 +53,7 @@ export default function EchartLogo() {
         stroke='white'
         strokeWidth='4'
         strokeLinejoin='round'
-        transform='255px 255px'
+        // transform='255px 255px'
         className='zr0-cls-4'
       />
       <path
@@ -62,7 +62,7 @@ export default function EchartLogo() {
         stroke='white'
         strokeWidth='4'
         strokeLinejoin='round'
-        transform='255px 255px'
+        // transform='255px 255px'
         className='zr0-cls-5'
       />
       <path
@@ -71,7 +71,7 @@ export default function EchartLogo() {
         stroke='white'
         strokeWidth='4'
         strokeLinejoin='round'
-        transform='255px 255px'
+        // transform='255px 255px'
         className='zr0-cls-6'
       />
       <path
@@ -80,7 +80,7 @@ export default function EchartLogo() {
         stroke='white'
         strokeWidth='4'
         strokeLinejoin='round'
-        transform='255px 255px'
+        // transform='255px 255px'
         className='zr0-cls-7'
       />
     </svg>

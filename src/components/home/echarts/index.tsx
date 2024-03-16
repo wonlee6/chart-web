@@ -15,7 +15,7 @@ import EchartLogo from './echartLogo'
 
 export default function EChartCard() {
   return (
-    <Card className='py-4 h-[40vh]' isHoverable isFooterBlurred>
+    <Card className='py-4' isHoverable isFooterBlurred>
       <CardHeader className='pb-0 pt-2 px-4 flex-col items-start relative'>
         <div className='z-20'>
           <Link href='https://echarts.apache.org/en/index.html' target='_blank'>
@@ -39,7 +39,7 @@ export default function EChartCard() {
       </CardHeader>
       <Divider className='my-4' />
       <CardBody className='overflow-visible pt-2 z-20'>
-        <div className='max-w-xs w-full'>
+        <div className='mb-5 max-w-xs w-full'>
           <h2 className='pl-4 font-extrabold text-2xl'>Features</h2>
           <div className='mt-4 pl-1 flex flex-col items-baseline justify-center'>
             <p className='mb-1 font-semibold border-b-1 max-sm:bg-gray-400/10 rounded-md border-none'>
