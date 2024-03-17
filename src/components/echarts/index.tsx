@@ -74,12 +74,12 @@ export default function ECharts({ fetchEchartType }: { fetchEchartType: string }
                   </MonacoEditorContainer>
                 </ModalBody>
                 <ModalFooter>
-                  <Button color='danger' variant='light' onPress={onClose}>
+                  <Button color='danger' variant='flat' onPress={onClose}>
                     Close
                   </Button>
-                  <Button color='primary' onPress={onClose}>
+                  {/* <Button color='primary' onPress={onClose}>
                     Action
-                  </Button>
+                  </Button> */}
                 </ModalFooter>
               </>
             ) : null

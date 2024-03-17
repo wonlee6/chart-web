@@ -37,7 +37,7 @@ function PreviewList({
             />
           </div>
           <div className='mt-1 flex justify-center truncate'>
-            <span title={item.title} style={{ fontSize: '1.2rem' }}>
+            <span className='truncate' title={item.title} style={{ fontSize: '1.2rem' }}>
               {item.title}
             </span>
           </div>
