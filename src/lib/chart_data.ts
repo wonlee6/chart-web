@@ -252,6 +252,16 @@ export const barChartImages = [
     type: ChartTypeModel.Bar
   },
   {
+    title: 'Stacked Bar with borderRadius',
+    img: `${BAR_IMG_URL}/bar-stack-borderRadius.webp`,
+    type: ChartTypeModel.Bar
+  },
+  {
+    title: 'Stacked Bar Normalization and variation',
+    img: `${BAR_IMG_URL}/bar-stack-normalization-and-variation.webp`,
+    type: ChartTypeModel.Bar
+  },
+  {
     title: 'Waterfall Chart',
     img: `${BAR_IMG_URL}/bar-waterfall2.webp`,
     type: ChartTypeModel.Bar
