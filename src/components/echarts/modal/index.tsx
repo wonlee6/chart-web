@@ -1,58 +1,48 @@
 'use client'
 
-import React, { useCallback, useEffect, useRef } from 'react'
-import { Splitter } from '@/components/common/Splitter'
-import * as echarts from 'echarts'
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup
+} from '@/components/ui/resizable-panel-group'
 import useDebounce from '@/hooks/useDebounce'
+import { useResizeObserver } from '@/hooks/useResizeObserver'
 
 export default function MonacoEditorContainer({
   children
 }: {
   children: React.ReactNode
 }) {
-  const chartContainerRef = useRef<HTMLDivElement | null>(null)
-  const resizeObserverRef = useRef(
-    new ResizeObserver((entries) => {
-      if (!Array.isArray(entries)) return
-      const { width, height } = entries[0].contentRect
-      handleResizeChart(width, height)
-    })
-  )
+  const ref = useResizeObserver<HTMLDivElement>((entry) => {
+    const { width, height } = entry.contentRect
+    handleResize(width, height)
+  })
 
-  const handleResizeChart = useDebounce(
-    useCallback((width: number, height: number) => {
-      if (!chartContainerRef.current) return
-      const eChartsInstance = echarts.getInstanceByDom(chartContainerRef.current)
-
-      if (eChartsInstance) {
-        eChartsInstance.resize({
-          width,
-          height
-        })
-      }
-    }, []),
-    200
-  )
-
-  useEffect(() => {
-    const ref = resizeObserverRef.current
-    const cref = chartContainerRef.current
-    if (cref) {
-      ref.observe(cref)
-    }
-    return () => {
-      if (cref) {
-        ref.unobserve(cref)
-      }
-    }
-  }, [])
+  const handleResize = useDebounce((width: number, height: number) => {
+    const nod = `
+      const chartDom = document.getElementById('chart');
+      const chartInstance = echarts.getInstanceByDom(chartDom)
+      chartInstance?.resize({
+        width: ${width},
+        height: ${height}
+      })
+      `
+    Function(nod)()
+  }, 200)
 
   return (
-    <Splitter>
-      <Splitter.Left>{children}</Splitter.Left>
-      <Splitter.Right>
-        <div ref={chartContainerRef} id='chart' className='w-full h-full' />
-      </Splitter.Right>
-    </Splitter>
+    <ResizablePanelGroup direction='horizontal'>
+      <ResizablePanel
+        className='mr-2 border-small rounded-small border-default-200 dark:border-default-100'
+        defaultSize={40}>
+        {children}
+      </ResizablePanel>
+      <ResizableHandle withHandle />
+      <ResizablePanel
+        className='ml-2 p-2 border-small rounded-small border-default-200 dark:border-default-100'
+        defaultSize={60}>
+        <div ref={ref} id='chart' className='w-full h-full' />
+      </ResizablePanel>
+    </ResizablePanelGroup>
   )
 }
