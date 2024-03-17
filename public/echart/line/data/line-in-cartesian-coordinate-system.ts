@@ -8,9 +8,9 @@ option = {
         [50, 100],
         [40, 20]
       ],
-      type: "line"
+      type: 'line'
     }
   ]
-};
+}
 
-export {};
+export {}

@@ -1,62 +1,60 @@
-myChart.showLoading();
+myChart.showLoading()
 
-function ___bfChartRun(json) {
-  myChart.hideLoading();
+function run(json) {
+  myChart.hideLoading()
 
   let data = json[0].x.map(function (x, idx) {
-    return [+x, +json[0].y[idx]];
-  });
+    return [+x, +json[0].y[idx]]
+  })
 
   myChart.setOption(
     (option = {
       title: {
-        text: "Master Painter Color Choices Throughout History",
-        subtext: "Data From Plot.ly",
-        left: "right"
+        text: 'Master Painter Color Choices Throughout History',
+        subtext: 'Data From Plot.ly',
+        left: 'right'
       },
       xAxis: {
-        type: "value",
+        type: 'value',
         splitLine: {
           show: false
         },
         scale: true,
         splitNumber: 5,
-        max: "dataMax",
+        max: 'dataMax',
         axisLabel: {
           formatter: function (val: number) {
-            return val + "s";
+            return val + 's'
           }
         }
       },
       yAxis: {
-        type: "value",
+        type: 'value',
         min: 0,
         max: 360,
         interval: 60,
-        name: "Hue",
+        name: 'Hue',
         splitLine: {
           show: false
         }
       },
       series: [
         {
-          name: "scatter",
-          type: "scatter",
+          name: 'scatter',
+          type: 'scatter',
           symbolSize: function (val, param) {
-            return (
-              json[0].marker.size[param.dataIndex] / json[0].marker.sizeref
-            );
+            return json[0].marker.size[param.dataIndex] / json[0].marker.sizeref
           },
           itemStyle: {
             color: function (param) {
-              return json[0].marker.color[param.dataIndex] as string;
+              return json[0].marker.color[param.dataIndex] as string
             }
           },
           data: data
         }
       ]
     })
-  );
+  )
 }
 
-export {};
+export {}

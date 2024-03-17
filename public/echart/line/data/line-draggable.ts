@@ -1,84 +1,79 @@
-const symbolSize = 20;
+const symbolSize = 20
 const data = [
   [40, -10],
   [-30, -5],
   [-76.5, 20],
   [-63.5, 40],
   [-22.1, 50]
-];
+]
 
 option = {
   title: {
-    text: "Try Dragging these Points",
-    left: "center"
+    text: 'Try Dragging these Points',
+    left: 'center'
   },
   tooltip: {
-    triggerOn: "none",
+    triggerOn: 'none',
     formatter: function (params: any) {
-      return (
-        "X: " +
-        params.data[0].toFixed(2) +
-        "<br>Y: " +
-        params.data[1].toFixed(2)
-      );
+      return 'X: ' + params.data[0].toFixed(2) + '<br>Y: ' + params.data[1].toFixed(2)
     }
   },
   grid: {
-    top: "8%",
-    bottom: "12%"
+    top: '8%',
+    bottom: '12%'
   },
   xAxis: {
     min: -100,
     max: 70,
-    type: "value",
+    type: 'value',
     axisLine: { onZero: false }
   },
   yAxis: {
     min: -30,
     max: 60,
-    type: "value",
+    type: 'value',
     axisLine: { onZero: false }
   },
   dataZoom: [
     {
-      type: "slider",
+      type: 'slider',
       xAxisIndex: 0,
-      filterMode: "none"
+      filterMode: 'none'
     },
     {
-      type: "slider",
+      type: 'slider',
       yAxisIndex: 0,
-      filterMode: "none"
+      filterMode: 'none'
     },
     {
-      type: "inside",
+      type: 'inside',
       xAxisIndex: 0,
-      filterMode: "none"
+      filterMode: 'none'
     },
     {
-      type: "inside",
+      type: 'inside',
       yAxisIndex: 0,
-      filterMode: "none"
+      filterMode: 'none'
     }
   ],
   series: [
     {
-      id: "a",
-      type: "line",
+      id: 'a',
+      type: 'line',
       smooth: true,
       symbolSize: symbolSize,
       data: data
     }
   ]
-};
+}
 
 setTimeout(function () {
   // Add shadow circles (which is not visible) to enable drag.
   myChart.setOption({
     graphic: data.map(function (item, dataIndex) {
       return {
-        type: "circle",
-        position: myChart.convertToPixel("grid", item),
+        type: 'circle',
+        position: myChart.convertToPixel('grid', item),
         shape: {
           cx: 0,
           cy: 0,
@@ -87,60 +82,60 @@ setTimeout(function () {
         invisible: true,
         draggable: true,
         ondrag: function (dx: number, dy: number) {
-          onPointDragging(dataIndex, [(this as any).x, (this as any).y]);
+          onPointDragging(dataIndex, [(this as any).x, (this as any).y])
         },
         onmousemove: function () {
-          showTooltip(dataIndex);
+          showTooltip(dataIndex)
         },
         onmouseout: function () {
-          hideTooltip(dataIndex);
+          hideTooltip(dataIndex)
         },
         z: 100
-      };
+      }
     })
-  });
-}, 0);
+  })
+}, 0)
 
-window.addEventListener("resize", updatePosition);
+window.addEventListener('resize', updatePosition)
 
-myChart.on("dataZoom", updatePosition);
+myChart.on('dataZoom', updatePosition)
 
 function updatePosition() {
   myChart.setOption({
     graphic: data.map(function (item, dataIndex) {
       return {
-        position: myChart.convertToPixel("grid", item)
-      };
+        position: myChart.convertToPixel('grid', item)
+      }
     })
-  });
+  })
 }
 
 function showTooltip(dataIndex: number) {
   myChart.dispatchAction({
-    type: "showTip",
+    type: 'showTip',
     seriesIndex: 0,
     dataIndex: dataIndex
-  });
+  })
 }
 
 function hideTooltip(dataIndex: number) {
   myChart.dispatchAction({
-    type: "hideTip"
-  });
+    type: 'hideTip'
+  })
 }
 
 function onPointDragging(dataIndex: number, pos: number[]) {
-  data[dataIndex] = myChart.convertFromPixel("grid", pos);
+  data[dataIndex] = myChart.convertFromPixel('grid', pos)
 
   // Update data
   myChart.setOption({
     series: [
       {
-        id: "a",
+        id: 'a',
         data: data
       }
     ]
-  });
+  })
 }
 
-export {};
+export {}

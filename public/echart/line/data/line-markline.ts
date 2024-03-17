@@ -1,35 +1,34 @@
-const markLine: echarts.MarkLineComponentOption["data"] = [];
+const markLine: echarts.MarkLineComponentOption['data'] = []
 const positions = [
-  "start",
-  "middle",
-  "end",
-  "insideStart",
-  "insideStartTop",
-  "insideStartBottom",
-  "insideMiddle",
-  "insideMiddleTop",
-  "insideMiddleBottom",
-  "insideEnd",
-  "insideEndTop",
-  "insideEndBottom"
-] as const;
+  'start',
+  'middle',
+  'end',
+  'insideStart',
+  'insideStartTop',
+  'insideStartBottom',
+  'insideMiddle',
+  'insideMiddleTop',
+  'insideMiddleBottom',
+  'insideEnd',
+  'insideEndTop',
+  'insideEndBottom'
+] as const
 for (let i = 0; i < positions.length; ++i) {
   markLine.push({
     name: positions[i],
     yAxis: 1.8 - 0.2 * Math.floor(i / 3),
     label: {
-      formatter: "{b}",
+      formatter: '{b}',
       position: positions[i]
     }
-  });
+  })
 
-  if (positions[i] !== "middle") {
-    const name =
-      positions[i] === "insideMiddle" ? "insideMiddle / middle" : positions[i];
+  if (positions[i] !== 'middle') {
+    const name = positions[i] === 'insideMiddle' ? 'insideMiddle / middle' : positions[i]
 
     markLine.push([
       {
-        name: "start: " + positions[i],
+        name: 'start: ' + positions[i],
         coord: [0, 0.3],
         label: {
           formatter: name,
@@ -37,10 +36,10 @@ for (let i = 0; i < positions.length; ++i) {
         }
       },
       {
-        name: "end: " + positions[i],
+        name: 'end: ' + positions[i],
         coord: [3, 1]
       }
-    ]);
+    ])
   }
 }
 
@@ -50,7 +49,7 @@ option = {
     fontSize: 14
   },
   xAxis: {
-    data: ["A", "B", "C", "D", "E"],
+    data: ['A', 'B', 'C', 'D', 'E'],
     boundaryGap: true,
     splitArea: {
       show: true
@@ -61,9 +60,9 @@ option = {
   },
   series: [
     {
-      name: "line",
-      type: "line",
-      stack: "all",
+      name: 'line',
+      type: 'line',
+      stack: 'all',
       symbolSize: 6,
       data: [0.3, 1.4, 1.2, 1, 0.6],
       markLine: {
@@ -80,6 +79,6 @@ option = {
     right: 60,
     bottom: 40
   }
-};
+}
 
-export {};
+export {}

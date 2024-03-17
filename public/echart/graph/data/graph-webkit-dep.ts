@@ -1,24 +1,24 @@
-myChart.showLoading();
-function ___bfChartRun(webkitDep) {
-  myChart.hideLoading();
+myChart.showLoading()
+function run(webkitDep) {
+  myChart.hideLoading()
 
   option = {
     legend: {
-      data: ["HTMLElement", "WebGL", "SVG", "CSS", "Other"]
+      data: ['HTMLElement', 'WebGL', 'SVG', 'CSS', 'Other']
     },
     series: [
       {
-        type: "graph",
-        layout: "force",
+        type: 'graph',
+        layout: 'force',
         animation: false,
         label: {
-          position: "right",
-          formatter: "{b}"
+          position: 'right',
+          formatter: '{b}'
         },
         draggable: true,
         data: webkitDep.nodes.map(function (node: any, idx: number) {
-          node.id = idx;
-          return node;
+          node.id = idx
+          return node
         }),
         categories: webkitDep.categories,
         force: {
@@ -29,8 +29,8 @@ function ___bfChartRun(webkitDep) {
         edges: webkitDep.links
       }
     ]
-  };
-  myChart.setOption(option);
+  }
+  myChart.setOption(option)
 }
 
-export {};
+export {}

@@ -1,44 +1,41 @@
-myChart.showLoading();
-function ___bfChartRun(data) {
-  myChart.hideLoading();
+myChart.showLoading()
+function run(data) {
+  myChart.hideLoading()
 
-  data.children.forEach(function (
-    datum: { collapsed: boolean },
-    index: number
-  ) {
-    index % 2 === 0 && (datum.collapsed = true);
-  });
+  data.children.forEach(function (datum: { collapsed: boolean }, index: number) {
+    index % 2 === 0 && (datum.collapsed = true)
+  })
 
   myChart.setOption(
     (option = {
       tooltip: {
-        trigger: "item",
-        triggerOn: "mousemove"
+        trigger: 'item',
+        triggerOn: 'mousemove'
       },
       series: [
         {
-          type: "tree",
+          type: 'tree',
           data: [data],
-          top: "1%",
-          left: "15%",
-          bottom: "1%",
-          right: "7%",
+          top: '1%',
+          left: '15%',
+          bottom: '1%',
+          right: '7%',
           symbolSize: 7,
-          orient: "RL",
+          orient: 'RL',
           label: {
-            position: "right",
-            verticalAlign: "middle",
-            align: "left"
+            position: 'right',
+            verticalAlign: 'middle',
+            align: 'left'
           },
           leaves: {
             label: {
-              position: "left",
-              verticalAlign: "middle",
-              align: "right"
+              position: 'left',
+              verticalAlign: 'middle',
+              align: 'right'
             }
           },
           emphasis: {
-            focus: "descendant"
+            focus: 'descendant'
           },
           expandAndCollapse: true,
           animationDuration: 550,
@@ -46,7 +43,7 @@ function ___bfChartRun(data) {
         }
       ]
     })
-  );
+  )
 }
 
-export {};
+export {}

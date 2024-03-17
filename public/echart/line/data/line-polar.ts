@@ -1,38 +1,38 @@
-const data: number[][] = [];
+const data: number[][] = []
 
 for (let i = 0; i <= 100; i++) {
-  let theta = (i / 100) * 360;
-  let r = 5 * (1 + Math.sin((theta / 180) * Math.PI));
-  data.push([r, theta]);
+  let theta = (i / 100) * 360
+  let r = 5 * (1 + Math.sin((theta / 180) * Math.PI))
+  data.push([r, theta])
 }
 
 option = {
   title: {
-    text: "Two Value-Axes in Polar"
+    text: 'Two Value-Axes in Polar'
   },
   legend: {
-    data: ["line"]
+    data: ['line']
   },
   polar: {},
   tooltip: {
-    trigger: "axis",
+    trigger: 'axis',
     axisPointer: {
-      type: "cross"
+      type: 'cross'
     }
   },
   angleAxis: {
-    type: "value",
+    type: 'value',
     startAngle: 0
   },
   radiusAxis: {},
   series: [
     {
-      coordinateSystem: "polar",
-      name: "line",
-      type: "line",
+      coordinateSystem: 'polar',
+      name: 'line',
+      type: 'line',
       data: data
     }
   ]
-};
+}
 
-export {};
+export {}

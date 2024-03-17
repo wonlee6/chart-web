@@ -1,35 +1,35 @@
 function splitData(rawData) {
-  const categoryData = [];
-  const values = [];
+  const categoryData = []
+  const values = []
   for (let i = 0; i < rawData.length; i++) {
-    categoryData.push(rawData[i][0]);
-    rawData[i][0] = i;
-    values.push(rawData[i]);
+    categoryData.push(rawData[i][0])
+    rawData[i][0] = i
+    values.push(rawData[i])
   }
   return {
     categoryData: categoryData,
     values: values
-  };
+  }
 }
 
 function renderItem(
   params: echarts.CustomSeriesRenderItemParams,
   api: echarts.CustomSeriesRenderItemAPI
 ): echarts.CustomSeriesRenderItemReturn {
-  let xValue = api.value(0);
-  let openPoint = api.coord([xValue, api.value(1)]);
-  let closePoint = api.coord([xValue, api.value(2)]);
-  let lowPoint = api.coord([xValue, api.value(3)]);
-  let highPoint = api.coord([xValue, api.value(4)]);
-  let halfWidth = (api.size!([1, 0]) as number[])[0] * 0.35;
+  let xValue = api.value(0)
+  let openPoint = api.coord([xValue, api.value(1)])
+  let closePoint = api.coord([xValue, api.value(2)])
+  let lowPoint = api.coord([xValue, api.value(3)])
+  let highPoint = api.coord([xValue, api.value(4)])
+  let halfWidth = (api.size!([1, 0]) as number[])[0] * 0.35
   let style = api.style({
-    stroke: api.visual("color")
-  });
+    stroke: api.visual('color')
+  })
   return {
-    type: "group",
+    type: 'group',
     children: [
       {
-        type: "line",
+        type: 'line',
         shape: {
           x1: lowPoint[0],
           y1: lowPoint[1],
@@ -39,7 +39,7 @@ function renderItem(
         style: style
       },
       {
-        type: "line",
+        type: 'line',
         shape: {
           x1: openPoint[0],
           y1: openPoint[1],
@@ -49,7 +49,7 @@ function renderItem(
         style: style
       },
       {
-        type: "line",
+        type: 'line',
         shape: {
           x1: closePoint[0],
           y1: closePoint[1],
@@ -59,32 +59,32 @@ function renderItem(
         style: style
       }
     ]
-  };
+  }
 }
 
-function ___bfChartRun(rawData) {
-  let data = splitData(rawData);
+function run(rawData) {
+  let data = splitData(rawData)
   myChart.setOption(
     (option = {
       animation: false,
       legend: {
         bottom: 10,
-        left: "center",
-        data: ["Dow-Jones index"]
+        left: 'center',
+        data: ['Dow-Jones index']
       },
       tooltip: {
-        trigger: "axis",
+        trigger: 'axis',
         axisPointer: {
-          type: "cross"
+          type: 'cross'
         },
         position: function (pos, params, el, elRect, size) {
-          let obj: Record<string, number> = { top: 10 };
-          obj[["left", "right"][+(pos[0] < size.viewSize[0] / 2)]] = 30;
-          return obj;
+          let obj: Record<string, number> = { top: 10 }
+          obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 30
+          return obj
         }
       },
       axisPointer: {
-        link: [{xAxisIndex: "all"}]
+        link: [{ xAxisIndex: 'all' }]
       },
       toolbox: {
         feature: {
@@ -92,26 +92,26 @@ function ___bfChartRun(rawData) {
             yAxisIndex: false
           },
           brush: {
-            type: ["lineX", "clear"]
+            type: ['lineX', 'clear']
           }
         }
       },
       grid: [
         {
-          left: "10%",
-          right: "8%",
+          left: '10%',
+          right: '8%',
           bottom: 150
         }
       ],
       xAxis: [
         {
-          type: "category",
+          type: 'category',
           data: data.categoryData,
           boundaryGap: false,
-          axisLine: {onZero: false},
-          splitLine: {show: false},
-          min: "dataMin",
-          max: "dataMax",
+          axisLine: { onZero: false },
+          splitLine: { show: false },
+          min: 'dataMin',
+          max: 'dataMax',
           axisPointer: {
             z: 100
           }
@@ -127,14 +127,14 @@ function ___bfChartRun(rawData) {
       ],
       dataZoom: [
         {
-          type: "inside",
+          type: 'inside',
           start: 98,
           end: 100,
           minValueSpan: 10
         },
         {
           show: true,
-          type: "slider",
+          type: 'slider',
           bottom: 60,
           start: 98,
           end: 100,
@@ -143,10 +143,10 @@ function ___bfChartRun(rawData) {
       ],
       series: [
         {
-          name: "Dow-Jones index",
-          type: "custom",
+          name: 'Dow-Jones index',
+          type: 'custom',
           renderItem: renderItem,
-          dimensions: ["-", "open", "close", "lowest", "highest"],
+          dimensions: ['-', 'open', 'close', 'lowest', 'highest'],
           encode: {
             x: 0,
             y: [1, 2, 3, 4],
@@ -157,7 +157,7 @@ function ___bfChartRun(rawData) {
       ]
     }),
     true
-  );
+  )
 }
 
-export {};
+export {}

@@ -1,104 +1,104 @@
 option = {
   title: {
-    text: "Temperature Change in the Coming Week"
+    text: 'Temperature Change in the Coming Week'
   },
   tooltip: {
-    trigger: "axis"
+    trigger: 'axis'
   },
   legend: {},
   toolbox: {
     show: true,
     feature: {
       dataZoom: {
-        yAxisIndex: "none"
+        yAxisIndex: 'none'
       },
       dataView: {
         readOnly: false
       },
       magicType: {
-        type: ["line", "bar"]
+        type: ['line', 'bar']
       },
       restore: {},
       saveAsImage: {}
     }
   },
   xAxis: {
-    type: "category",
+    type: 'category',
     boundaryGap: false,
-    data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
   },
   yAxis: {
-    type: "value",
+    type: 'value',
     axisLabel: {
-      formatter: "{value} °C"
+      formatter: '{value} °C'
     }
   },
   series: [
     {
-      name: "Highest",
-      type: "line",
+      name: 'Highest',
+      type: 'line',
       data: [10, 11, 13, 11, 12, 12, 9],
       markPoint: {
         data: [
           {
-            type: "max",
-            name: "Max"
+            type: 'max',
+            name: 'Max'
           },
           {
-            type: "min",
-            name: "Min"
+            type: 'min',
+            name: 'Min'
           }
         ]
       },
       markLine: {
         data: [
-            {
-              type: "average",
-              name: "Avg"
-            }
+          {
+            type: 'average',
+            name: 'Avg'
+          }
         ]
       }
     },
     {
-      name: "Lowest",
-      type: "line",
+      name: 'Lowest',
+      type: 'line',
       data: [1, -2, 2, 5, 3, 2, 0],
       markPoint: {
         data: [
-            {
-              name: "peak",
-              value: -2,
-              xAxis: 1,
-              yAxis: -1.5
-            }
-          ]
+          {
+            name: 'peak',
+            value: -2,
+            xAxis: 1,
+            yAxis: -1.5
+          }
+        ]
       },
       markLine: {
         data: [
           {
-            type: "average",
-            name: "Avg"
+            type: 'average',
+            name: 'Avg'
           },
           [
             {
-              symbol: "none",
-              x: "90%",
-              yAxis: "max"
+              symbol: 'none',
+              x: '90%',
+              yAxis: 'max'
             },
             {
-              symbol: "circle",
+              symbol: 'circle',
               label: {
-                position: "start",
-                formatter: "Max"
+                position: 'start',
+                formatter: 'Max'
               },
-              type: "max",
-              name: "peak"
+              type: 'max',
+              name: 'peak'
             }
           ]
         ]
       }
     }
   ]
-};
+}
 
-export {};
+export {}

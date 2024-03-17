@@ -1,7 +1,7 @@
 option = {
   title: {
-    text: "Rainfall and Flow Relationship",
-    left: "center"
+    text: 'Rainfall and Flow Relationship',
+    left: 'center'
   },
   grid: {
     bottom: 80
@@ -9,24 +9,24 @@ option = {
   toolbox: {
     feature: {
       dataZoom: {
-        yAxisIndex: "none"
+        yAxisIndex: 'none'
       },
       restore: {},
       saveAsImage: {}
     }
   },
   tooltip: {
-    trigger: "axis",
+    trigger: 'axis',
     axisPointer: {
-      type: "cross",
+      type: 'cross',
       animation: false,
       label: {
-        backgroundColor: "#505765"
+        backgroundColor: '#505765'
       }
     }
   },
   legend: {
-    data: ["Flow", "Rainfall"],
+    data: ['Flow', 'Rainfall'],
     left: 10
   },
   dataZoom: [
@@ -37,7 +37,7 @@ option = {
       end: 85
     },
     {
-      type: "inside",
+      type: 'inside',
       realtime: true,
       start: 65,
       end: 85
@@ -45,7 +45,7 @@ option = {
   ],
   xAxis: [
     {
-      type: "category",
+      type: 'category',
       boundaryGap: false,
       axisLine: {
         onZero: false
@@ -56,27 +56,27 @@ option = {
   ],
   yAxis: [
     {
-      name: "Flow(m³/s)",
-      type: "value"
+      name: 'Flow(m³/s)',
+      type: 'value'
     },
     {
-      name: "Rainfall(mm)",
-      nameLocation: "start",
+      name: 'Rainfall(mm)',
+      nameLocation: 'start',
       alignTicks: true,
-      type: "value",
+      type: 'value',
       inverse: true
     }
   ],
   series: [
     {
-      name: "Flow",
-      type: "line",
+      name: 'Flow',
+      type: 'line',
       areaStyle: {},
       lineStyle: {
         width: 1
       },
       emphasis: {
-        focus: "series"
+        focus: 'series'
       },
       markArea: {
         silent: true,
@@ -86,10 +86,10 @@ option = {
         data: [
           [
             {
-              xAxis: "2009/9/12\n7:00"
+              xAxis: '2009/9/12\n7:00'
             },
             {
-              xAxis: "2009/9/22\n7:00"
+              xAxis: '2009/9/22\n7:00'
             }
           ]
         ]
@@ -100,15 +100,15 @@ option = {
             ]
     },
     {
-      name: "Rainfall",
-      type: "line",
+      name: 'Rainfall',
+      type: 'line',
       yAxisIndex: 1,
       areaStyle: {},
       lineStyle: {
         width: 1
       },
       emphasis: {
-        focus: "series"
+        focus: 'series'
       },
       markArea: {
         silent: true,
@@ -118,10 +118,10 @@ option = {
         data: [
           [
             {
-              xAxis: "2009/9/10\n7:00"
+              xAxis: '2009/9/10\n7:00'
             },
             {
-              xAxis: "2009/9/20\n7:00"
+              xAxis: '2009/9/20\n7:00'
             }
           ]
         ]
@@ -132,6 +132,6 @@ option = {
             ]
     }
   ]
-};
+}
 
-export {};
+export {}

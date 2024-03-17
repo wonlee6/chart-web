@@ -1,14 +1,14 @@
 function func(x: number) {
-  x /= 10;
-  return Math.sin(x) * Math.cos(x * 2 + 1) * Math.sin(x * 3 + 2) * 50;
+  x /= 10
+  return Math.sin(x) * Math.cos(x * 2 + 1) * Math.sin(x * 3 + 2) * 50
 }
 
 function generateData() {
-  let data = [];
+  let data = []
   for (let i = -200; i <= 200; i += 0.1) {
-    data.push([i, func(i)]);
+    data.push([i, func(i)])
   }
-  return data;
+  return data
 }
 
 option = {
@@ -20,7 +20,7 @@ option = {
     bottom: 50
   },
   xAxis: {
-    name: "x",
+    name: 'x',
     minorTick: {
       show: true
     },
@@ -29,7 +29,7 @@ option = {
     }
   },
   yAxis: {
-    name: "y",
+    name: 'y',
     min: -100,
     max: 100,
     minorTick: {
@@ -42,16 +42,16 @@ option = {
   dataZoom: [
     {
       show: true,
-      type: "inside",
-      filterMode: "none",
+      type: 'inside',
+      filterMode: 'none',
       xAxisIndex: [0],
       startValue: -20,
       endValue: 20
     },
     {
       show: true,
-      type: "inside",
-      filterMode: "none",
+      type: 'inside',
+      filterMode: 'none',
       yAxisIndex: [0],
       startValue: -20,
       endValue: 20
@@ -59,12 +59,12 @@ option = {
   ],
   series: [
     {
-      type: "line",
+      type: 'line',
       showSymbol: false,
       clip: true,
       data: generateData()
     }
   ]
-};
+}
 
-export {};
+export {}

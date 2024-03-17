@@ -19,26 +19,21 @@ export default function EChartCard() {
       <CardHeader className='pb-0 pt-2 px-4 flex-col items-start relative'>
         <div className='z-20'>
           <Link href='https://echarts.apache.org/en/index.html' target='_blank'>
-            <Image
-              className='object-cover rounded-xl'
-              src={echartLogo.src}
-              alt='Card background'
-              width={270}
-            />
+            <Image src={echartLogo.src} alt='Card background' width={270} />
           </Link>
-          <h4 className='mt-3 font-semibold text-medium'>
+          <h4 className='font-semibold text-medium'>
             An Open Source JavaScript Visualization Library
           </h4>
-          <h4 className='mt-3 font-semibold text-medium'>
+          <h4 className='font-semibold text-medium'>
             A Declarative Framework for Rapid Construction of Web-based Visualization
           </h4>
         </div>
-        <div className='absolute top-10 right-5 z-10'>
+        <div className='absolute top-3 right-5 z-10'>
           <EchartLogo />
         </div>
       </CardHeader>
-      <Divider className='my-4' />
-      <CardBody className='overflow-visible pt-2 z-20'>
+      <Divider className='my-3' />
+      <CardBody className='overflow-visible z-20'>
         <div className='mb-5 max-w-xs w-full'>
           <h2 className='pl-4 font-extrabold text-2xl'>Features</h2>
           <div className='mt-4 pl-1 flex flex-col items-baseline justify-center'>

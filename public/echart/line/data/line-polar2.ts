@@ -1,29 +1,29 @@
-const data: number[][] = [];
+const data: number[][] = []
 
 for (let i = 0; i <= 360; i++) {
-  let t = (i / 180) * Math.PI;
-  let r = Math.sin(2 * t) * Math.cos(2 * t);
-  data.push([r, i]);
+  let t = (i / 180) * Math.PI
+  let r = Math.sin(2 * t) * Math.cos(2 * t)
+  data.push([r, i])
 }
 
 option = {
   title: {
-    text: "Two Value-Axes in Polar"
+    text: 'Two Value-Axes in Polar'
   },
   legend: {
-    data: ["line"]
+    data: ['line']
   },
   polar: {
-    center: ["50%", "54%"]
+    center: ['50%', '54%']
   },
   tooltip: {
-    trigger: "axis",
+    trigger: 'axis',
     axisPointer: {
-      type: "cross"
+      type: 'cross'
     }
   },
   angleAxis: {
-    type: "value",
+    type: 'value',
     startAngle: 0
   },
   radiusAxis: {
@@ -31,14 +31,14 @@ option = {
   },
   series: [
     {
-      coordinateSystem: "polar",
-      name: "line",
-      type: "line",
+      coordinateSystem: 'polar',
+      name: 'line',
+      type: 'line',
       showSymbol: false,
       data: data
     }
   ],
   animationDuration: 2000
-};
+}
 
-export {};
+export {}

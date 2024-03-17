@@ -1,6 +1,6 @@
-myChart.showLoading();
-function ___bfChartRun(usaJson) {
-  echarts.registerMap("USA", usaJson, {
+myChart.showLoading()
+function run(usaJson) {
+  echarts.registerMap('USA', usaJson, {
     Alaska: {
       left: -131,
       top: 25,
@@ -11,29 +11,29 @@ function ___bfChartRun(usaJson) {
       top: 28,
       width: 5
     },
-    "Puerto Rico": {
+    'Puerto Rico': {
       left: -76,
       top: 26,
       width: 2
     }
-  });
+  })
 
   function randomPieSeries(
     center: string | number[],
     radius: number
   ): echarts.PieSeriesOption {
-    const data = ["A", "B", "C", "D"].map((t) => {
+    const data = ['A', 'B', 'C', 'D'].map((t) => {
       return {
         value: Math.round(Math.random() * 100),
-        name: "Category " + t
-      };
-    });
+        name: 'Category ' + t
+      }
+    })
 
     return {
-      type: "pie",
-      coordinateSystem: "geo",
+      type: 'pie',
+      coordinateSystem: 'geo',
       tooltip: {
-        formatter: "{b}: {c} ({d}%)"
+        formatter: '{b}: {c} ({d}%)'
       },
       label: {
         show: false
@@ -45,15 +45,15 @@ function ___bfChartRun(usaJson) {
       radius,
       center,
       data
-    };
+    }
   }
 
   option = {
     geo: {
-      map: "USA",
+      map: 'USA',
       roam: true,
       itemStyle: {
-        areaColor: "#e7e8ea"
+        areaColor: '#e7e8ea'
       }
     },
     tooltip: {},
@@ -64,16 +64,16 @@ function ___bfChartRun(usaJson) {
       randomPieSeries([-99, 31.5], 30),
       randomPieSeries(
         // it's also supported to use geo region name as center since v5.4.1
-        +echarts.version.split(".").slice(0, 3).join("") > 540
-          ? "Maine"
+        +echarts.version.split('.').slice(0, 3).join('') > 540
+          ? 'Maine'
           : // or you can only use the LngLat array
             [-69, 45.5],
         12
       )
     ]
-  };
-  myChart.hideLoading();
-  myChart.setOption(option);
+  }
+  myChart.hideLoading()
+  myChart.setOption(option)
 }
 
-export {};
+export {}

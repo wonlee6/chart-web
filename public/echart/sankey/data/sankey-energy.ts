@@ -1,29 +1,29 @@
-function ___bfChartRun(data) {
+function run(data) {
   myChart.setOption(
     (option = {
       title: {
-        text: "Sankey Diagram"
+        text: 'Sankey Diagram'
       },
       tooltip: {
-        trigger: "item",
-        triggerOn: "mousemove"
+        trigger: 'item',
+        triggerOn: 'mousemove'
       },
       series: [
         {
-          type: "sankey",
+          type: 'sankey',
           data: data.nodes,
           links: data.links,
           emphasis: {
-            focus: "adjacency"
+            focus: 'adjacency'
           },
           lineStyle: {
-            color: "gradient",
+            color: 'gradient',
             curveness: 0.5
           }
         }
       ]
     })
-  );
+  )
 }
 
-export {};
+export {}

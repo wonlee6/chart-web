@@ -1,29 +1,29 @@
-myChart.showLoading();
-function ___bfChartRun(graph) {
-  myChart.hideLoading();
+myChart.showLoading()
+function run(graph) {
+  myChart.hideLoading()
 
   option = {
     tooltip: {},
     legend: [
       {
         data: graph.categories.map(function (a: { name: string }) {
-          return a.name;
+          return a.name
         })
       }
     ],
     series: [
       {
-        name: "Les Miserables",
-        type: "graph",
-        layout: "none",
+        name: 'Les Miserables',
+        type: 'graph',
+        layout: 'none',
         data: graph.nodes,
         links: graph.links,
         categories: graph.categories,
         roam: true,
         label: {
           show: true,
-          position: "right",
-          formatter: "{b}"
+          position: 'right',
+          formatter: '{b}'
         },
         labelLayout: {
           hideOverlap: true
@@ -33,13 +33,13 @@ function ___bfChartRun(graph) {
           max: 2
         },
         lineStyle: {
-          color: "source",
+          color: 'source',
           curveness: 0.3
         }
       }
     ]
-  };
-  myChart.setOption(option);
+  }
+  myChart.setOption(option)
 }
 
-export {};
+export {}

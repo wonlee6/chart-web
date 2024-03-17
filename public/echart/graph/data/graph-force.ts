@@ -1,53 +1,53 @@
 interface GraphNode {
-  symbolSize: number;
+  symbolSize: number
   label?: {
-    show?: boolean;
-  };
+    show?: boolean
+  }
 }
 
-myChart.showLoading();
-function ___bfChartRun(graph) {
-  myChart.hideLoading();
+myChart.showLoading()
+function run(graph) {
+  myChart.hideLoading()
 
   graph.nodes.forEach(function (node: GraphNode) {
-    node.symbolSize = 5;
-  });
+    node.symbolSize = 5
+  })
 
   option = {
     title: {
-      text: "Les Miserables",
-      subtext: "Default layout",
-      top: "bottom",
-      left: "right"
+      text: 'Les Miserables',
+      subtext: 'Default layout',
+      top: 'bottom',
+      left: 'right'
     },
     tooltip: {},
     legend: [
       {
         // selectedMode: 'single',
         data: graph.categories.map(function (a: { name: string }) {
-          return a.name;
+          return a.name
         })
       }
     ],
     series: [
       {
-        name: "Les Miserables",
-        type: "graph",
-        layout: "force",
+        name: 'Les Miserables',
+        type: 'graph',
+        layout: 'force',
         data: graph.nodes,
         links: graph.links,
         categories: graph.categories,
         roam: true,
         label: {
-          position: "right"
+          position: 'right'
         },
         force: {
           repulsion: 100
         }
       }
     ]
-  };
-  myChart.setOption(option);
+  }
+  myChart.setOption(option)
 }
 
-export {};
+export {}

@@ -1,66 +1,66 @@
 type RawNode = {
-  [key: string]: RawNode;
+  [key: string]: RawNode
 } & {
-  $count: number;
-};
-
-interface TreeNode {
-  name: string;
-  value: number;
-  children?: TreeNode[];
+  $count: number
 }
 
-myChart.showLoading();
-function ___bfChartRun(rawData) {
-  myChart.hideLoading();
+interface TreeNode {
+  name: string
+  value: number
+  children?: TreeNode[]
+}
+
+myChart.showLoading()
+function run(rawData) {
+  myChart.hideLoading()
 
   function convert(source: RawNode, target: TreeNode, basePath: string) {
     for (let key in source) {
-      let path = basePath ? basePath + "." + key : key;
+      let path = basePath ? basePath + '.' + key : key
       if (!key.match(/^\$/)) {
-        target.children = target.children || [];
+        target.children = target.children || []
         const child = {
           name: path
-        } as TreeNode;
-        target.children.push(child);
-        convert(source[key], child, path);
+        } as TreeNode
+        target.children.push(child)
+        convert(source[key], child, path)
       }
     }
     if (!target.children) {
-      target.value = source.$count || 1;
+      target.value = source.$count || 1
     } else {
       target.children.push({
         name: basePath,
         value: source.$count
-      });
+      })
     }
   }
 
   const data = {
     children: [] as TreeNode[]
-  } as TreeNode;
+  } as TreeNode
 
-  convert(rawData, data, "");
+  convert(rawData, data, '')
 
   myChart.setOption(
     (option = {
       title: {
-        text: "ECharts Options",
-        subtext: "2016/04",
-        left: "leafDepth"
+        text: 'ECharts Options',
+        subtext: '2016/04',
+        left: 'leafDepth'
       },
       tooltip: {},
       series: [
         {
-          name: "option",
-          type: "treemap",
+          name: 'option',
+          type: 'treemap',
           visibleMin: 300,
           data: data.children,
           leafDepth: 2,
           levels: [
             {
               itemStyle: {
-                borderColor: "#555",
+                borderColor: '#555',
                 borderWidth: 4,
                 gapWidth: 4
               }
@@ -87,7 +87,7 @@ function ___bfChartRun(rawData) {
         }
       ]
     })
-  );
+  )
 }
 
-export {};
+export {}

@@ -1,31 +1,31 @@
 interface RawNode {
-  x: number;
-  y: number;
-  id: string;
-  label: string;
-  size: number;
-  color: string;
+  x: number
+  y: number
+  id: string
+  label: string
+  size: number
+  color: string
 }
 
 interface RawEdge {
-  sourceID: string;
-  targetID: string;
+  sourceID: string
+  targetID: string
 }
 
-myChart.showLoading();
-function ___bfChartRun(json) {
-  myChart.hideLoading();
+myChart.showLoading()
+function run(json) {
+  myChart.hideLoading()
   myChart.setOption(
     (option = {
       title: {
-        text: "NPM Dependencies"
+        text: 'NPM Dependencies'
       },
       animationDurationUpdate: 1500,
-      animationEasingUpdate: "quinticInOut",
+      animationEasingUpdate: 'quinticInOut',
       series: [
         {
-          type: "graph",
-          layout: "none",
+          type: 'graph',
+          layout: 'none',
           // progressiveThreshold: 700,
           data: json.nodes.map(function (node: RawNode) {
             return {
@@ -37,18 +37,18 @@ function ___bfChartRun(json) {
               itemStyle: {
                 color: node.color
               }
-            };
+            }
           }),
           edges: json.edges.map(function (edge: RawEdge) {
             return {
               source: edge.sourceID,
               target: edge.targetID
-            };
+            }
           }),
           emphasis: {
-            focus: "adjacency",
+            focus: 'adjacency',
             label: {
-              position: "right",
+              position: 'right',
               show: true
             }
           },
@@ -62,7 +62,7 @@ function ___bfChartRun(json) {
       ]
     }),
     true
-  );
+  )
 }
 
-export {};
+export {}

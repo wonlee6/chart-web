@@ -1,46 +1,46 @@
-myChart.showLoading();
-function ___bfChartRun(data) {
-  myChart.hideLoading();
+myChart.showLoading()
+function run(data) {
+  myChart.hideLoading()
 
   myChart.setOption(
     (option = {
       tooltip: {
-        trigger: "item",
-        triggerOn: "mousemove"
+        trigger: 'item',
+        triggerOn: 'mousemove'
       },
       series: [
         {
-          type: "tree",
+          type: 'tree',
           data: [data],
-          left: "2%",
-          right: "2%",
-          top: "20%",
-          bottom: "8%",
-          symbol: "emptyCircle",
-          orient: "BT",
+          left: '2%',
+          right: '2%',
+          top: '20%',
+          bottom: '8%',
+          symbol: 'emptyCircle',
+          orient: 'BT',
           expandAndCollapse: true,
           label: {
-            position: "bottom",
+            position: 'bottom',
             rotate: 90,
-            verticalAlign: "middle",
-            align: "right"
+            verticalAlign: 'middle',
+            align: 'right'
           },
           leaves: {
             label: {
-              position: "top",
+              position: 'top',
               rotate: 90,
-              verticalAlign: "middle",
-              align: "left"
+              verticalAlign: 'middle',
+              align: 'left'
             }
           },
           emphasis: {
-            focus: "descendant"
+            focus: 'descendant'
           },
           animationDurationUpdate: 750
         }
       ]
     })
-  );
+  )
 }
 
-export {};
+export {}

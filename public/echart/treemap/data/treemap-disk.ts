@@ -1,8 +1,8 @@
-myChart.showLoading();
-function ___bfChartRun(diskData) {
-  myChart.hideLoading();
+myChart.showLoading()
+function run(diskData) {
+  myChart.hideLoading()
 
-  const formatUtil = echarts.format;
+  const formatUtil = echarts.format
 
   function getLevelOption() {
     return [
@@ -24,47 +24,49 @@ function ___bfChartRun(diskData) {
           borderColorSaturation: 0.6
         }
       }
-    ];
+    ]
   }
 
   myChart.setOption(
     (option = {
       title: {
-        text: "Disk Usage",
-        left: "center"
+        text: 'Disk Usage',
+        left: 'center'
       },
       tooltip: {
         formatter: function (info: any) {
-          let value = info.value;
-          let treePathInfo = info.treePathInfo;
-          let treePath = [];
+          let value = info.value
+          let treePathInfo = info.treePathInfo
+          let treePath = []
           for (let i = 1; i < treePathInfo.length; i++) {
-            treePath.push(treePathInfo[i].name);
+            treePath.push(treePathInfo[i].name)
           }
           return [
-            "<div class=\"tooltip-title\">" + formatUtil.encodeHTML(treePath.join("/")) + "</div>",
-            "Disk Usage: " + formatUtil.addCommas(value) + " KB"
-          ].join("");
+            '<div class="tooltip-title">' +
+              formatUtil.encodeHTML(treePath.join('/')) +
+              '</div>',
+            'Disk Usage: ' + formatUtil.addCommas(value) + ' KB'
+          ].join('')
         }
       },
       series: [
         {
-          name: "Disk Usage",
-          type: "treemap",
+          name: 'Disk Usage',
+          type: 'treemap',
           visibleMin: 300,
           label: {
             show: true,
-            formatter: "{b}"
+            formatter: '{b}'
           },
           itemStyle: {
-            borderColor: "#fff"
+            borderColor: '#fff'
           },
           levels: getLevelOption(),
           data: diskData
         }
       ]
     })
-  );
+  )
 }
 
-export {};
+export {}

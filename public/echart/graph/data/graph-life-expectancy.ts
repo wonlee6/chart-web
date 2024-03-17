@@ -1,16 +1,16 @@
-function ___bfChartRun(rawData) {
-  const series: NonNullable<echarts.EChartsOption["series"]> = [];
+function run(rawData) {
+  const series: NonNullable<echarts.EChartsOption['series']> = []
 
   rawData.counties.forEach(function (country: string) {
     const data = rawData.series.map(function (yearData: (string | number)[][]) {
       const item = yearData.filter(function (item: (string | number)[]) {
-        return item[3] === country;
-      })[0];
+        return item[3] === country
+      })[0]
 
       return {
         label: {
           show: +item[4] % 20 === 0 && +item[4] > 1940,
-          position: "top"
+          position: 'top'
         },
         emphasis: {
           label: {
@@ -19,42 +19,42 @@ function ___bfChartRun(rawData) {
         },
         name: item[4],
         value: item
-      };
-    });
+      }
+    })
     let links = data.map(function (item: unknown, idx: number) {
       return {
         source: idx,
         target: idx + 1
-      };
-    });
-    links.pop();
+      }
+    })
+    links.pop()
 
     series.push({
       name: country,
-      type: "graph",
-      coordinateSystem: "cartesian2d",
+      type: 'graph',
+      coordinateSystem: 'cartesian2d',
       data: data,
       links: links,
-      edgeSymbol: ["none", "arrow"],
+      edgeSymbol: ['none', 'arrow'],
       edgeSymbolSize: 5,
       legendHoverLink: false,
       lineStyle: {
-        color: "#333"
+        color: '#333'
       },
       itemStyle: {
         borderWidth: 1,
-        borderColor: "#333"
+        borderColor: '#333'
       },
       label: {
-        color: "#333",
-        position: "right"
+        color: '#333',
+        position: 'right'
       },
       symbolSize: 10,
       animationDelay: function (idx) {
-        return idx * 100;
+        return idx * 100
       }
-    });
-  });
+    })
+  })
 
   option = {
     visualMap: {
@@ -65,7 +65,7 @@ function ___bfChartRun(rawData) {
     },
     legend: {
       data: rawData.counties,
-      selectedMode: "single",
+      selectedMode: 'single',
       right: 100
     },
     grid: {
@@ -75,10 +75,10 @@ function ___bfChartRun(rawData) {
       top: 80
     },
     xAxis: {
-      type: "value"
+      type: 'value'
     },
     yAxis: {
-      type: "value",
+      type: 'value',
       scale: true
     },
     toolbox: {
@@ -87,11 +87,11 @@ function ___bfChartRun(rawData) {
       }
     },
     dataZoom: {
-      type: "inside"
+      type: 'inside'
     },
     series: series
-  };
-  myChart.setOption(option);
+  }
+  myChart.setOption(option)
 }
 
-export {};
+export {}

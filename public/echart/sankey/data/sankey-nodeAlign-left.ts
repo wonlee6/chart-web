@@ -1,30 +1,30 @@
-function ___bfChartRun(data) {
+function run(data) {
   myChart.setOption(
     (option = {
       title: {
-        text: "Node Align Right"
+        text: 'Node Align Right'
       },
       tooltip: {
-        trigger: "item",
-        triggerOn: "mousemove"
+        trigger: 'item',
+        triggerOn: 'mousemove'
       },
       series: [
         {
-          type: "sankey",
+          type: 'sankey',
           emphasis: {
-            focus: "adjacency"
+            focus: 'adjacency'
           },
-          nodeAlign: "left",
+          nodeAlign: 'left',
           data: data.nodes,
           links: data.links,
           lineStyle: {
-            color: "source",
+            color: 'source',
             curveness: 0.5
           }
         }
       ]
     })
-  );
+  )
 }
 
-export {};
+export {}

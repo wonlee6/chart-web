@@ -1,4 +1,4 @@
-function ___bfChartRun(data) {
+function run(data) {
   option = {
     title: {
       text: "Dispersion of house price based on the area",
