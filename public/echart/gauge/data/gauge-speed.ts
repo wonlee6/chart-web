@@ -1,7 +1,7 @@
 option = {
   series: [
     {
-      type: "gauge",
+      type: 'gauge',
       progress: {
         show: true,
         width: 18
@@ -18,12 +18,12 @@ option = {
         length: 15,
         lineStyle: {
           width: 2,
-          color: "#999"
+          color: '#999'
         }
       },
       axisLabel: {
         distance: 25,
-        color: "#999",
+        color: '#999',
         fontSize: 20
       },
       anchor: {
@@ -40,7 +40,7 @@ option = {
       detail: {
         valueAnimation: true,
         fontSize: 80,
-        offsetCenter: [0, "70%"]
+        offsetCenter: [0, '70%']
       },
       data: [
         {
@@ -49,4 +49,6 @@ option = {
       ]
     }
   ]
-};
+}
+
+export {}

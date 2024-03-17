@@ -1,19 +1,19 @@
-fetch("./asset/chart/complex/custom/svg/Map_of_Iceland.svg")
+fetch('./asset/chart/complex/custom/svg/Map_of_Iceland.svg')
   .then((res) => res.text())
   .then((svg) => {
-    echarts.registerMap("iceland_svg", {svg: svg});
+    echarts.registerMap('iceland_svg', { svg: svg })
     option = {
       tooltip: {},
       geo: {
         tooltip: {
           show: true
         },
-        map: "iceland_svg",
+        map: 'iceland_svg',
         roam: true
       },
       series: {
-        type: "custom",
-        coordinateSystem: "geo",
+        type: 'custom',
+        coordinateSystem: 'geo',
         geoIndex: 0,
         zlevel: 1,
         data: [
@@ -25,19 +25,22 @@ fetch("./asset/chart/complex/custom/svg/Map_of_Iceland.svg")
           [1378.62251255796, 935.6708486282843, 81]
         ],
         renderItem(params, api) {
-          const coord = api.coord([api.value(0, params.dataIndex), api.value(1, params.dataIndex)]);
-          const circles = [];
+          const coord = api.coord([
+            api.value(0, params.dataIndex),
+            api.value(1, params.dataIndex)
+          ])
+          const circles = []
           for (let i = 0; i < 5; i++) {
             circles.push({
-              type: "circle",
+              type: 'circle',
               shape: {
                 cx: 0,
                 cy: 0,
                 r: 30
               },
               style: {
-                stroke: "red",
-                fill: "none",
+                stroke: 'red',
+                fill: 'none',
                 lineWidth: 2
               },
               // Ripple animation
@@ -64,25 +67,25 @@ fetch("./asset/chart/complex/custom/svg/Map_of_Iceland.svg")
                   }
                 ]
               }
-            });
+            })
           }
           return {
-            type: "group",
+            type: 'group',
             x: coord[0],
             y: coord[1],
             children: [
               ...circles,
               {
-                type: "path",
+                type: 'path',
                 shape: {
-                  d: "M16 0c-5.523 0-10 4.477-10 10 0 10 10 22 10 22s10-12 10-22c0-5.523-4.477-10-10-10zM16 16c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z",
+                  d: 'M16 0c-5.523 0-10 4.477-10 10 0 10 10 22 10 22s10-12 10-22c0-5.523-4.477-10-10-10zM16 16c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z',
                   x: -10,
                   y: -35,
                   width: 20,
                   height: 40
                 },
                 style: {
-                  fill: "red"
+                  fill: 'red'
                 },
                 // Jump animation.
                 keyframeAnimation: {
@@ -93,20 +96,22 @@ fetch("./asset/chart/complex/custom/svg/Map_of_Iceland.svg")
                     {
                       y: -10,
                       percent: 0.5,
-                      easing: "cubicOut"
+                      easing: 'cubicOut'
                     },
                     {
                       y: 0,
                       percent: 1,
-                      easing: "bounceOut"
+                      easing: 'bounceOut'
                     }
                   ]
                 }
               }
             ]
-          };
+          }
         }
       }
-    };
-    myChart.setOption(option);
-  });
+    }
+    myChart.setOption(option)
+  })
+
+export {}

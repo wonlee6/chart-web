@@ -130,3 +130,5 @@ function run(_rawData) {
   };
   myChart.setOption(option);
 }
+
+export {}

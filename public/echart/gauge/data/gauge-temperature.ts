@@ -1,15 +1,15 @@
 option = {
   series: [
     {
-      type: "gauge",
-      center: ["50%", "60%"],
+      type: 'gauge',
+      center: ['50%', '60%'],
       startAngle: 200,
       endAngle: -20,
       min: 0,
       max: 60,
       splitNumber: 12,
       itemStyle: {
-        color: "#FFAB91"
+        color: '#FFAB91'
       },
       progress: {
         show: true,
@@ -28,7 +28,7 @@ option = {
         splitNumber: 5,
         lineStyle: {
           width: 2,
-          color: "#999"
+          color: '#999'
         }
       },
       splitLine: {
@@ -36,12 +36,12 @@ option = {
         length: 14,
         lineStyle: {
           width: 3,
-          color: "#999"
+          color: '#999'
         }
       },
       axisLabel: {
         distance: -20,
-        color: "#999",
+        color: '#999',
         fontSize: 20
       },
       anchor: {
@@ -52,14 +52,14 @@ option = {
       },
       detail: {
         valueAnimation: true,
-        width: "60%",
+        width: '60%',
         lineHeight: 40,
         borderRadius: 8,
-        offsetCenter: [0, "-15%"],
+        offsetCenter: [0, '-15%'],
         fontSize: 60,
-        fontWeight: "bolder",
-        formatter: "{value} °C",
-        color: "inherit"
+        fontWeight: 'bolder',
+        formatter: '{value} °C',
+        color: 'inherit'
       },
       data: [
         {
@@ -68,14 +68,14 @@ option = {
       ]
     },
     {
-      type: "gauge",
-      center: ["50%", "60%"],
+      type: 'gauge',
+      center: ['50%', '60%'],
       startAngle: 200,
       endAngle: -20,
       min: 0,
       max: 60,
       itemStyle: {
-        color: "#FD7347"
+        color: '#FD7347'
       },
       progress: {
         show: true,
@@ -106,9 +106,9 @@ option = {
       ]
     }
   ]
-};
+}
 setInterval(function () {
-  const random = +(Math.random() * 60).toFixed(2);
+  const random = +(Math.random() * 60).toFixed(2)
   myChart.setOption({
     series: [
       {
@@ -126,5 +126,7 @@ setInterval(function () {
         ]
       }
     ]
-  });
-}, 2000);
+  })
+}, 2000)
+
+export {}

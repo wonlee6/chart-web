@@ -1,20 +1,20 @@
 option = {
   title: [
     {
-      text: "Michelson-Morley Experiment",
-      left: "center"
+      text: 'Michelson-Morley Experiment',
+      left: 'center'
     },
     {
-      text: "upper: Q3 + 1.5 * IQR \nlower: Q1 - 1.5 * IQR",
-      borderColor: "#999",
+      text: 'upper: Q3 + 1.5 * IQR \nlower: Q1 - 1.5 * IQR',
+      borderColor: '#999',
       borderWidth: 1,
       textStyle: {
-        fontWeight: "normal",
+        fontWeight: 'normal',
         fontSize: 14,
         lineHeight: 20
       },
-      left: "10%",
-      top: "90%"
+      left: '10%',
+      top: '90%'
     }
   ],
   dataset: [
@@ -30,8 +30,8 @@ option = {
     },
     {
       transform: {
-        type: "boxplot",
-        config: {itemNameFormatter: "expr {value}"}
+        type: 'boxplot',
+        config: { itemNameFormatter: 'expr {value}' }
       }
     },
     {
@@ -40,18 +40,18 @@ option = {
     }
   ],
   tooltip: {
-    trigger: "item",
+    trigger: 'item',
     axisPointer: {
-      type: "shadow"
+      type: 'shadow'
     }
   },
   grid: {
-    left: "10%",
-    right: "10%",
-    bottom: "15%"
+    left: '10%',
+    right: '10%',
+    bottom: '15%'
   },
   xAxis: {
-    type: "category",
+    type: 'category',
     boundaryGap: true,
     nameGap: 30,
     splitArea: {
@@ -62,22 +62,24 @@ option = {
     }
   },
   yAxis: {
-    type: "value",
-    name: "km/s minus 299,000",
+    type: 'value',
+    name: 'km/s minus 299,000',
     splitArea: {
       show: true
     }
   },
   series: [
     {
-      name: "boxplot",
-      type: "boxplot",
+      name: 'boxplot',
+      type: 'boxplot',
       datasetIndex: 1
     },
     {
-      name: "outlier",
-      type: "scatter",
+      name: 'outlier',
+      type: 'scatter',
       datasetIndex: 2
     }
   ]
-};
+}
+
+export {}

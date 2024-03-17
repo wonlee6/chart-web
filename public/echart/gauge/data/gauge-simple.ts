@@ -1,24 +1,26 @@
 option = {
   tooltip: {
-    formatter: "{a} <br/>{b} : {c}%"
+    formatter: '{a} <br/>{b} : {c}%'
   },
   series: [
     {
-      name: "Pressure",
-      type: "gauge",
+      name: 'Pressure',
+      type: 'gauge',
       progress: {
         show: true
       },
       detail: {
         valueAnimation: true,
-        formatter: "{value}"
+        formatter: '{value}'
       },
       data: [
         {
           value: 50,
-          name: "SCORE"
+          name: 'SCORE'
         }
       ]
     }
   ]
-};
+}
+
+export {}

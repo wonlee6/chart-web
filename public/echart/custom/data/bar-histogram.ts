@@ -1,4 +1,4 @@
-echarts.registerTransform(ecStat.transform.histogram);
+echarts.registerTransform(ecStat.transform.histogram)
 option = {
   dataset: [
     {
@@ -38,31 +38,31 @@ option = {
     },
     {
       transform: {
-        type: "ecStat:histogram",
+        type: 'ecStat:histogram',
         config: {}
       }
     },
     {
       transform: {
-        type: "ecStat:histogram",
+        type: 'ecStat:histogram',
         // print: true,
-        config: {dimensions: [1]}
+        config: { dimensions: [1] }
       }
     }
   ],
   tooltip: {},
   grid: [
     {
-      top: "50%",
-      right: "50%"
+      top: '50%',
+      right: '50%'
     },
     {
-      bottom: "52%",
-      right: "50%"
+      bottom: '52%',
+      right: '50%'
     },
     {
-      top: "50%",
-      left: "52%"
+      top: '50%',
+      left: '52%'
     }
   ],
   xAxis: [
@@ -71,11 +71,11 @@ option = {
       gridIndex: 0
     },
     {
-      type: "category",
+      type: 'category',
       scale: true,
-      axisTick: {show: false},
-      axisLabel: {show: false},
-      axisLine: {show: false},
+      axisTick: { show: false },
+      axisLabel: { show: false },
+      axisLine: { show: false },
       gridIndex: 1
     },
     {
@@ -91,47 +91,49 @@ option = {
       gridIndex: 1
     },
     {
-      type: "category",
-      axisTick: {show: false},
-      axisLabel: {show: false},
-      axisLine: {show: false},
+      type: 'category',
+      axisTick: { show: false },
+      axisLabel: { show: false },
+      axisLine: { show: false },
       gridIndex: 2
     }
   ],
   series: [
     {
-      name: "origianl scatter",
-      type: "scatter",
+      name: 'origianl scatter',
+      type: 'scatter',
       xAxisIndex: 0,
       yAxisIndex: 0,
-      encode: {tooltip: [0, 1]},
+      encode: { tooltip: [0, 1] },
       datasetIndex: 0
     },
     {
-      name: "histogram",
-      type: "bar",
+      name: 'histogram',
+      type: 'bar',
       xAxisIndex: 1,
       yAxisIndex: 1,
-      barWidth: "99.3%",
+      barWidth: '99.3%',
       label: {
         show: true,
-        position: "top"
+        position: 'top'
       },
-      encode: {x: 0, y: 1, itemName: 4},
+      encode: { x: 0, y: 1, itemName: 4 },
       datasetIndex: 1
     },
     {
-      name: "histogram",
-      type: "bar",
+      name: 'histogram',
+      type: 'bar',
       xAxisIndex: 2,
       yAxisIndex: 2,
-      barWidth: "99.3%",
+      barWidth: '99.3%',
       label: {
         show: true,
-        position: "right"
+        position: 'right'
       },
-      encode: {x: 1, y: 0, itemName: 4},
+      encode: { x: 1, y: 0, itemName: 4 },
       datasetIndex: 2
     }
   ]
-};
+}
+
+export {}
