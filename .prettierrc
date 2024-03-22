@@ -6,5 +6,6 @@
   "trailingComma": "none",
   "printWidth": 90,
   "semi": false,
-  "jsxSingleQuote": true
+  "jsxSingleQuote": true,
+  "plugins": ["eslint-plugin-tailwindcss"]
 }

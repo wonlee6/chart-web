@@ -23,7 +23,7 @@ export default function RootLayout({
         <Provider>
           <main className='flex flex-col h-lvh'>
             <Nav />
-            <div className='pt-4 h-screen'>{children}</div>
+            <div className='h-screen'>{children}</div>
           </main>
         </Provider>
         <Analytics />
