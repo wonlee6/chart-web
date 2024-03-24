@@ -22,7 +22,7 @@ import {
   themeRiverChartImages,
   treeChartImages,
   treemapChartImages
-} from '@/lib/chart_data'
+} from '@/lib/echarts/echart_data'
 import { ChartTypeModel } from '@/model/echart'
 
 export const echartHelper = {

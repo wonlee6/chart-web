@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Listbox, ListboxItem } from '@nextui-org/react'
 import { ChartTypeModel } from '@/model/echart'
-import { chartMenuList } from '@/lib/chart_menu'
+import { chartMenuList } from '@/lib/echarts/echart_menu'
 import ChartSVGIcon from './icons/ChartSVGIcon'
 
 function MenuContainer({ children }: { children: React.ReactNode }) {

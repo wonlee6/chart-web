@@ -86,12 +86,12 @@ export default function App() {
             ECharts
           </Button>
         </NavbarItem>
-        <NavbarItem isActive={pathName === 'rechart'}>
+        <NavbarItem isActive={pathName.includes('recharts')}>
           <Button
             as={Link}
             variant='light'
-            href='/rechart'
-            color={pathName === 'rechart' ? 'primary' : 'default'}>
+            href='/recharts/SimpleLineChart'
+            color={pathName.includes('recharts') ? 'primary' : 'default'}>
             Recharts
           </Button>
         </NavbarItem>
