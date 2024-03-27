@@ -12,7 +12,7 @@ export default function ChartsLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className='pt-4 w-full max-w-screen-2xl h-full mx-auto'>
+    <div className='mx-auto size-full max-w-screen-2xl pt-4'>
       {children}
       <Script
         src='https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js'

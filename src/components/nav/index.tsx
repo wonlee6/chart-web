@@ -57,14 +57,14 @@ export default function App() {
         <NavbarMenuToggle aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} />
       </NavbarContent>
 
-      <NavbarContent className='sm:hidden pr-3' justify='center'>
+      <NavbarContent className='pr-3 sm:hidden' justify='center'>
         <NavbarBrand>
           {/* <AcmeLogo /> */}
           <p className='font-bold text-inherit'>Home</p>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className='hidden sm:flex gap-4' justify='center'>
+      <NavbarContent className='hidden gap-4 sm:flex' justify='center'>
         {/* <NavbarBrand>
           <p className='font-bold text-inherit'>Brand</p>
         </NavbarBrand> */}

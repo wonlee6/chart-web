@@ -8,8 +8,8 @@ import ChartSVGIcon from './icons/ChartSVGIcon'
 
 function MenuContainer({ children }: { children: React.ReactNode }) {
   return (
-    <aside className='w-auto flex flex-col gap-2'>
-      <div className='w-[200px] border-small px-1 py-2 rounded-small border-default-200 dark:border-default-100 sticky top-0 inset-x-0'>
+    <aside className='flex w-auto flex-col gap-2'>
+      <div className='sticky inset-x-0 top-0 w-[200px] rounded-small border-small border-default-200 px-1 py-2 dark:border-default-100'>
         {children}
       </div>
     </aside>

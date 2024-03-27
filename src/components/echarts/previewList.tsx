@@ -5,8 +5,8 @@ import { Image } from '@nextui-org/react'
 
 function PreviewListContainer({ children }: { children: React.ReactNode }) {
   return (
-    <section className='w-full border-small border-default-200 border-spacing-1 rounded-md dark:border-default-100'>
-      <div className='flex justify-start flex-wrap gap-3'>{children}</div>
+    <section className='w-full border-spacing-1 rounded-md border-small border-default-200 dark:border-default-100'>
+      <div className='flex flex-wrap justify-start gap-3'>{children}</div>
     </section>
   )
 }
@@ -23,9 +23,9 @@ function PreviewList({
       {previewList.map((item, index) => (
         <div
           key={item.title + String(index)}
-          className='p-4 d-flex flex-column'
+          className='flex flex-col p-4'
           style={{ width: '19rem' }}>
-          <div className='cursor-pointer shadow-md hover:scale-110 transition-all'>
+          <div className='cursor-pointer shadow-md transition-all hover:scale-110'>
             <Image
               onClick={() => onSelectChart(item)}
               className='object-cover'

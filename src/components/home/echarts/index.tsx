@@ -24,8 +24,8 @@ import {
 
 export default function EChartCard() {
   return (
-    <Card key='echarts' className='py-4 h-1/2' isHoverable isFooterBlurred>
-      <CardHeader className='pb-0 pt-2 px-4 flex-col items-start relative'>
+    <Card key='echarts' className='h-1/2 py-4' isHoverable isFooterBlurred>
+      <CardHeader className='relative flex-col items-start px-4 pb-0 pt-2'>
         <div className='z-20'>
           <Link href='https://echarts.apache.org/en/index.html' target='_blank'>
             <Image
@@ -37,25 +37,25 @@ export default function EChartCard() {
               priority
             />
           </Link>
-          <h4 className='font-semibold text-medium'>
+          <h4 className='text-medium font-semibold'>
             An Open Source JavaScript Visualization Library
           </h4>
-          <h4 className='font-semibold text-medium'>
+          <h4 className='text-medium font-semibold'>
             A Declarative Framework for Rapid Construction of Web-based Visualization
           </h4>
         </div>
-        <div className='absolute top-3 right-5 z-10'>
+        <div className='absolute right-5 top-3 z-10'>
           <EchartLogo />
         </div>
       </CardHeader>
       <Divider className='my-2' />
-      <CardBody className='overflow-visible z-20 max-sm:overflow-y-auto'>
-        <div className='mb-5 w-full h-full'>
-          <h2 className='pl-4 font-extrabold text-2xl text-center'>Features</h2>
-          <div className='grid grid-cols-3 gap-2 h-[10rem]'>
+      <CardBody className='z-20 overflow-visible max-sm:overflow-y-auto'>
+        <div className='mb-5 size-full'>
+          <h2 className='pl-4 text-center text-2xl font-extrabold'>Features</h2>
+          <div className='grid h-40 grid-cols-3 gap-2'>
             <div className='flex flex-col items-center'>
               <GrLineChart style={{ fontSize: '2rem' }} />
-              <h6 className='font-semibold text-center'>Flexible Chart Types</h6>
+              <h6 className='text-center font-semibold'>Flexible Chart Types</h6>
               <p
                 className='w-full truncate'
                 title='Apache ECharts provides more than 20 chart types available out of the box,
@@ -68,7 +68,7 @@ export default function EChartCard() {
             </div>
             <div className='flex flex-col items-center'>
               <GoPaperAirplane style={{ fontSize: '2rem' }} />
-              <h6 className='font-semibold text-center'>Powerful Rendering Engine</h6>
+              <h6 className='text-center font-semibold'>Powerful Rendering Engine</h6>
               <p
                 className='w-full truncate'
                 title='Easily switch between Canvas and SVG rendering. Progressive rendering and
@@ -79,7 +79,7 @@ export default function EChartCard() {
             </div>
             <div className='flex flex-col items-center'>
               <SiAzuredataexplorer style={{ fontSize: '2rem' }} />
-              <h6 className='font-semibold text-center'>Professional Data Analysis</h6>
+              <h6 className='text-center font-semibold'>Professional Data Analysis</h6>
               <p
                 className='w-full truncate'
                 title='Manage data through datasets, which support data transforms like
@@ -92,7 +92,7 @@ export default function EChartCard() {
             </div>
             <div className='flex flex-col items-center'>
               <MdOutlineDesignServices style={{ fontSize: '2rem' }} />
-              <h6 className='font-semibold text-center'>Elegant Visual Design</h6>
+              <h6 className='text-center font-semibold'>Elegant Visual Design</h6>
               <p
                 className='w-full truncate'
                 title='The default design follows visualization principles, supports responsive
@@ -103,7 +103,7 @@ export default function EChartCard() {
             </div>
             <div className='flex flex-col items-center'>
               <MdOutlineHealthAndSafety style={{ fontSize: '2rem' }} />
-              <h6 className='font-semibold text-center'>A Healthy Community</h6>
+              <h6 className='text-center font-semibold'>A Healthy Community</h6>
               <p
                 className='w-full truncate'
                 title='The active open source community ensures the healthy development of the
@@ -114,7 +114,7 @@ export default function EChartCard() {
             </div>
             <div className='flex flex-col items-center'>
               <MdOutlineSwitchAccessShortcut style={{ fontSize: '2rem' }} />
-              <h6 className='font-semibold text-center'>Accessibility-Friendly</h6>
+              <h6 className='text-center font-semibold'>Accessibility-Friendly</h6>
               <p
                 className='w-full truncate'
                 title='Automatically generated chart descriptions and decal patterns help users
@@ -128,7 +128,7 @@ export default function EChartCard() {
           </div>
         </div>
       </CardBody>
-      <CardFooter className='justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-30'>
+      <CardFooter className='absolute bottom-1 z-30 ml-1 w-[calc(100%_-_8px)] justify-between overflow-hidden rounded-large border-1 border-white/20 py-1 shadow-small before:rounded-xl before:bg-white/10'>
         <Link href='https://github.com/apache/echarts' target='_blank'>
           Visit source code on GitHub.
           <FaGithub style={{ fontSize: '1.5rem', color: 'black' }} />

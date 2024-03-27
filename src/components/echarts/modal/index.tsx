@@ -33,15 +33,15 @@ export default function MonacoEditorContainer({
   return (
     <ResizablePanelGroup direction='horizontal'>
       <ResizablePanel
-        className='mr-2 border-small rounded-small border-default-200 dark:border-default-100'
+        className='mr-2 rounded-small border-small border-default-200 dark:border-default-100'
         defaultSize={40}>
         {children}
       </ResizablePanel>
       <ResizableHandle withHandle />
       <ResizablePanel
-        className='ml-2 p-2 border-small rounded-small border-default-200 dark:border-default-100'
+        className='ml-2 rounded-small border-small border-default-200 p-2 dark:border-default-100'
         defaultSize={60}>
-        <div ref={ref} id='chart' className='w-full h-full' />
+        <div ref={ref} id='chart' className='size-full' />
       </ResizablePanel>
     </ResizablePanelGroup>
   )

@@ -1,11 +1,11 @@
 'use client'
 
 import React from 'react'
-import {Spinner} from '@nextui-org/react'
+import { Spinner } from '@nextui-org/react'
 
 export default function PostLoading() {
   return (
-    <div className='w-full h-full flex justify-center items-center'>
+    <div className='flex size-full items-center justify-center'>
       <Spinner size='lg' color='secondary' labelColor='secondary' />
     </div>
   )

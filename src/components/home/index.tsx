@@ -5,7 +5,7 @@ import ReChartCard from './recharts'
 
 export default function HomePage() {
   return (
-    <div className='w-full h-full py-4 flex flex-col gap-4'>
+    <div className='flex size-full flex-col gap-4 py-4'>
       <EChartCard />
       <ReChartCard />
     </div>
