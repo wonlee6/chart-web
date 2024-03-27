@@ -26,7 +26,7 @@ export default function EChartCard() {
   return (
     <Card key='echarts' className='h-1/2 py-4' isHoverable isFooterBlurred>
       <CardHeader className='relative flex-col items-start px-4 pb-0 pt-2'>
-        <div className='z-20'>
+        <div className='z-20 flex w-full justify-around max-md:flex-wrap'>
           <Link href='https://echarts.apache.org/en/index.html' target='_blank'>
             <Image
               as={NextImage}
@@ -37,12 +37,14 @@ export default function EChartCard() {
               priority
             />
           </Link>
-          <h4 className='text-medium font-semibold'>
-            An Open Source JavaScript Visualization Library
-          </h4>
-          <h4 className='text-medium font-semibold'>
-            A Declarative Framework for Rapid Construction of Web-based Visualization
-          </h4>
+          <div>
+            <h4 className='text-medium font-semibold'>
+              An Open Source JavaScript Visualization Library
+            </h4>
+            <h4 className='text-medium font-semibold'>
+              A Declarative Framework for Rapid Construction of Web-based Visualization
+            </h4>
+          </div>
         </div>
         <div className='absolute right-5 top-3 z-10'>
           <EchartLogo />
@@ -50,9 +52,9 @@ export default function EChartCard() {
       </CardHeader>
       <Divider className='my-2' />
       <CardBody className='z-20 overflow-visible max-sm:overflow-y-auto'>
-        <div className='mb-5 size-full'>
+        <div className='size-full'>
           <h2 className='pl-4 text-center text-2xl font-extrabold'>Features</h2>
-          <div className='grid h-40 grid-cols-3 gap-2'>
+          <div className='grid h-[calc(100%_-_3rem)] grid-cols-3 gap-2'>
             <div className='flex flex-col items-center'>
               <GrLineChart style={{ fontSize: '2rem' }} />
               <h6 className='text-center font-semibold'>Flexible Chart Types</h6>
