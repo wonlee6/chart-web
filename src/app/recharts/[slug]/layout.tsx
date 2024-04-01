@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 export default function ReChartsLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className='flex size-full pt-4'>
-      <aside className='h-full w-1/4 flex-auto overflow-y-auto rounded-small border-small border-default-200 px-1 py-2 dark:border-default-100'>
+      <aside className='h-full w-1/5 flex-auto overflow-y-auto rounded-small border-small border-default-200 px-1 py-2 dark:border-default-100'>
         <ReCharts />
       </aside>
-      <section className='w-3/4'>{children}</section>
+      <section className='w-4/5'>{children}</section>
     </div>
   )
 }
